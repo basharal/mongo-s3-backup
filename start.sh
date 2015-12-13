@@ -23,12 +23,17 @@ else
         mkfifo "$LOGFIFO"
     fi
     CRON_ENV="PARAMS='$PARAMS'"
+    CRON_ENV="$CRON_ENV\nACCESS_KEY='$ACCESS_KEY'"
+    CRON_ENV="$CRON_ENV\nSECRET_KEY='$SECRET_KEY'"
     CRON_ENV="$CRON_ENV\nDATA_PATH='$DATA_PATH'"
     CRON_ENV="$CRON_ENV\nS3_PATH='$S3_PATH'"
-    CRON_ENV="$MONGO_HOST\nMONGO_HOST='$MONGO_HOST'"
-    CRON_ENV="$MONGO_PORT\nMONGO_PORT='$MONGO_PORT'"
+    CRON_ENV="$CRON_ENV\nMONGO_HOST='$MONGO_HOST'"
+    CRON_ENV="$CRON_ENV\nMONGO_PORT='$MONGO_PORT'"
     echo -e "$CRON_ENV\n$CRON_SCHEDULE /backup.sh > $LOGFIFO 2>&1" | crontab -
     crontab -l
+    # there is a slight race-condition where cron might not see the crontab files
+    # the sleep is to avoid that
+    sleep 3
     cron
     tail -f "$LOGFIFO"
 fi
