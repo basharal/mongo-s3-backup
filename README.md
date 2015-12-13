@@ -1,6 +1,3 @@
-basharal/backup-to-s3
-======================
-
 Docker container that periodically backups MongoDB instance to Amazon S3 using [s3cmd put](http://s3tools.org/s3cmd-put), mongodump, and cron.
 
 ### Usage
