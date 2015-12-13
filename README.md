@@ -1,7 +1,7 @@
-istepanov/backup-to-s3
+basharal/backup-to-s3
 ======================
 
-Docker container that periodically backups files to Amazon S3 using [s3cmd sync](http://s3tools.org/s3cmd-sync) and cron.
+Docker container that periodically backups MongoDB instance to Amazon S3 using [s3cmd put](http://s3tools.org/s3cmd-put), mongodump, and cron.
 
 ### Usage
 
