@@ -17,7 +17,7 @@ Docker container that periodically backups MongoDB instance to Amazon S3 using [
 * `-e PARAMS="--dry-run"`: parameters to pass to the s3cmd put command ([full list here](http://s3tools.org/usage)).
 * `-e DATA_PATH=/data/`: container's backup directory (where backups will be stored locally before uploading to S3). 
    Default is `/root/`. Should end with trailing slash.
-* `-e 'CRON_SCHEDULE=0 1 * * *'`: specifies when cron job starts ([details](http://en.wikipedia.org/wiki/Cron)). Default is `0 1 * * *` (runs every day at 1:00 am).
+* `-e 'CRON_SCHEDULE=0 6 * * *'`: specifies when cron job starts ([details](http://en.wikipedia.org/wiki/Cron)). Default is `0 6 * * *` (runs every day at 6:00 am UTC = 10 pm PST).
 * `no-cron`: run container once and exit (no cron scheduling).
 
 ### Examples:

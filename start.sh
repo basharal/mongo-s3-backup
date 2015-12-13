@@ -8,7 +8,7 @@ MONGO_HOST=${MONGO_HOST:?"MONGO_HOST env variable is required"}
 S3_PATH=${S3_PATH:?"S3_PATH env variable is required"}
 MONGO_PORT=${MONGO_PORT:-27017}
 DATA_PATH=${DATA_PATH:-/root/}
-CRON_SCHEDULE=${CRON_SCHEDULE:-0 1 * * *}
+CRON_SCHEDULE=${CRON_SCHEDULE:-0 6 * * *}
 PARAMS=${PARAMS}
 
 echo "access_key=$ACCESS_KEY" >> /root/.s3cfg
